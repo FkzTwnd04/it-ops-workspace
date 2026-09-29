@@ -1,0 +1,39 @@
+# ── 环境变量（含密钥，绝不提交）──
+.env
+.env.local
+.env.*.local
+frontend/.env
+frontend/.env.local
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.venv-*/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── 本地模型权重（体积数 GB，按 README 下载）──
+backend/models/
+
+# ── 评测运行产物 ──
+data/eval_results/
+
+# ── 前端 ──
+frontend/node_modules/
+frontend/dist/
+
+# ── IDE / 系统 ──
+.idea/
+.vscode/
+.cursor/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ── 日志 ──
+*.log
+logs/

@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "it-ticket-agent"
+version = "2.0.0"
+description = "基于 Deep Agents 的 IT 智能工单系统"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "asyncpg>=0.31.0",
+    "bcrypt==3.2.2",
+    "deepagents>=0.7.19",
+    "fastapi>=0.141.1",
+    "flagembedding==1.2.10",
+    "httpx>=0.28.1",
+    "langchain>=1.4.2",
+    "langchain-core>=1.6.5",
+    "langchain-openai>=1.6.6",
+    "langgraph-checkpoint-postgres>=3.1.2",
+    "passlib>=1.7.4",
+    "psycopg-pool>=3.3.3",
+    "psycopg[binary]>=3.3.6",
+    "pydantic-settings>=2.0",
+    "pymilvus>=3.0.2",
+    "python-jose>=3.5.0",
+    "redis>=5.0",
+    "sentence-transformers==2.7.0",
+    "sqlalchemy[asyncio]>=2.1.1",
+    "transformers==4.36.2",
+    "uvicorn>=0.54.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=1.0",
+]
+
+[tool.setuptools]
+packages = ["backend"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
+markers = ["db: 需要本地 PostgreSQL（docker compose up -d postgres）"]
+filterwarnings = ["ignore::DeprecationWarning", "ignore::FutureWarning"]
